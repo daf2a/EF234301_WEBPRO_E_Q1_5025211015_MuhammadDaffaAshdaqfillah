@@ -336,23 +336,17 @@
     <!-- Footer -->
   </body>
   <script>
-    // Fungsi untuk mengatur tema gelap atau terang
-    function setTheme(theme) {
-      document.documentElement.setAttribute("data-theme", theme);
-      localStorage.setItem("theme", theme);
-    }
-
-    // Fungsi untuk beralih antara tema gelap dan terang
-    function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute("data-theme");
-      const newTheme = currentTheme === "dark" ? "dark" : "dark";
-      setTheme(newTheme);
+    // Fungsi untuk mengatur tema gelap
+    function setThemeDark() {
+      document.documentElement.setAttribute("data-theme", "dark");
+      localStorage.setItem("theme", "dark");
     }
 
     // Cek apakah tema telah disimpan di localStorage
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setTheme(savedTheme);
+    if (!savedTheme || savedTheme === "dark" || savedTheme === "light") {
+      // Jika tidak ada tema yang disimpan di localStorage atau tema adalah "dark", atur tema ke gelap secara default
+      setThemeDark();
     }
   </script>
 </html>
